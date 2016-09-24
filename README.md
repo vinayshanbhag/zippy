@@ -7,11 +7,11 @@ pip install Pillow
 
 ```usage: zippy.py [-h] [-f csvfile] [-p path] [-o outfile] [-v] [-w]```
 
-```Search for thumbnails in zip files and print report.```
+Search for thumbnails in zip files and print report.
 
-```- *.zip in current dir```
-```- *.zip in [-p path]```
-```- zip files listed in [-f csvfile]```
+- *.zip in current dir
+- *.zip in [-p path]
+- zip files listed in [-f csvfile]
 
 
 ```optional arguments:```
