@@ -1,10 +1,20 @@
 # zippy
-A python script to inspect zip files for thumbnail images
+A python script to inspect zip files for thumbnail images. Search for thumbnail.{jpg|png|jpeg|gif} in zipfiles and report image details - pixel width, height,format,color mode.
 
-```Usage: zippy.py <path/to/zip/files> <path/to/output.csv [results.csv]>```
+Dependencies: Python Image Library (Pillow) http://pillow.readthedocs.io
+pip install Pillow
 
-Search ```path/to/zip/files``` recursively for zip files. Inspect each zip file for at least one thumbnail image - ```thumbnail.{jpg|png|gif|jpeg}``` file in the root folder.
+```usage: zippy.py [-h] [-f csvfile] [-p path] [-o outfile] [-v] [-w]```
 
-Print count of zip files inspected and those with/ without a thumbnail image.
+Search for thumbnails in zip files and print report.
+ - *.zip in current dir
+ - *.zip in [-p path]
+ - zip files listed in [-f csvfile]
 
-Output report to a csv file - path, zip filename, status and thumbnail filename (if present).
+optional arguments:
+  -h, --help                  show this help message and exit
+  -f csvfile, --file csvfile  CSV file with id,zip filename
+  -p path, --path path        path to zip file(s)
+  -o outfile, --out outfile   path to output file
+  -v, --verbose               print status messages
+  -w, --warning               disable decompression bomb warning
