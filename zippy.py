@@ -76,7 +76,7 @@ def parseFromPath():
         parser.print_usage()
         exit()
     try:
-        with open(outfile,'w') as cf:
+        with open(outfile,'w',newline='') as cf:
             writer = csv.writer(cf,delimiter=',',quotechar='"')
             writer.writerow(['Filename','Thumbnail','Width(px)','Height(px)','Format','Color Mode'])
             for name in zipfiles:
@@ -120,7 +120,7 @@ def parseFromFile():
         print('Error reading input file %s\nExpect CSV file with unique id(column 1) and zip filename (column 2)'%inputfile)
         exit()
     try:
-        with open(outfile,'w') as cf:
+        with open(outfile,'w',newline='') as cf:
             writer = csv.writer(cf,delimiter=',',quotechar='"')
             writer.writerow(['Unique ID','Filename','Thumbnail','Width(px)','Height(px)','Format','Color Mode'])
             for row in data:
