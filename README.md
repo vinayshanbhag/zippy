@@ -1,5 +1,5 @@
 # zippy
-A python script to inspect zip files for thumbnail images. Search for thumbnail.{jpg|png|jpeg|gif} in zipfiles and report image details - pixel width, height,format,color mode.
+A python script to inspect thumbnail images in zip files. Search for thumbnail.{jpg|png|jpeg|gif} in zipfiles and report image details - pixel width, height,format,color mode.
 
 Dependencies: Python Image Library (Pillow) http://pillow.readthedocs.io
 
