@@ -81,8 +81,8 @@ def parseFromPath():
             writer.writerow(['Filename','Thumbnail','Width(px)','Height(px)','Format','Color Mode'])
             for name in zipfiles:
                 try:
-                    zip = zipfile.ZipFile(name)
                     printMessage('inspecting ' + name)
+                    zip = zipfile.ZipFile(name)
                     filenames = {n for n in zip.namelist()}
                     if filenames.intersection(thumbnails):
                         thumb = filenames.intersection(thumbnails).pop()
@@ -104,6 +104,9 @@ def parseFromPath():
                 except IOError: 
                     printMessage('ZIP File Not Found ' + name)
                     writer.writerow([name,'ZIP File Not found','NA','NA','NA','NA'])
+                except zipfile.BadZipFile:
+                    printMessage('Bad ZIP File ' + name)
+                    writer.writerow([name,'Bad ZIP File','NA','NA','NA','NA'])
                 finally:
                     cf.flush()
             print('\nSee %s'%outfile)
@@ -125,8 +128,8 @@ def parseFromFile():
             writer.writerow(['Unique ID','Filename','Thumbnail','Width(px)','Height(px)','Format','Color Mode'])
             for row in data:
                 try:
-                    zip = zipfile.ZipFile(path+row[1])
                     printMessage('Inspecting ' + path+row[1])
+                    zip = zipfile.ZipFile(path+row[1])
                     filenames = {n for n in zip.namelist()}
                     if filenames.intersection(thumbnails):
                         thumb = filenames.intersection(thumbnails).pop()
@@ -148,6 +151,9 @@ def parseFromFile():
                 except IOError: 
                     printMessage('ZIP File Not Found ' + path+row[1])
                     writer.writerow([row[0],row[1],'ZIP File Not Found','NA','NA','NA','NA'])
+                except zipfile.BadZipFile:
+                    printMessage('Bad ZIP File ' + name)
+                    writer.writerow([row[0],row[1],'Bad ZIP File','NA','NA','NA','NA'])
                 finally:
                     cf.flush()
             print('\nSee %s'%outfile)
