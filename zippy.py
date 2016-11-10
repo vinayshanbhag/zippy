@@ -42,7 +42,7 @@ elif inputfile:
 if args.warning: Image.warnings.simplefilter('ignore', Image.DecompressionBombWarning)
 
 # acceptable thumbnail file names
-thumbnails = {'thumbnail.jpg','thumbnail.png’,’thumbnail.gif','thumbnail.jpeg'} 
+thumbnails = {'thumbnail.jpg','thumbnail.png','thumbnail.gif','thumbnail.jpeg'} 
 
 # Replace archive with RGB thumbnail. 
 def updateThumb(zipfilename, thumbfilename, image):
