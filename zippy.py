@@ -151,7 +151,7 @@ def parseFromFile():
                 except IOError: 
                     printMessage('ZIP File Not Found ' + path+row[1])
                     writer.writerow([row[0],row[1],'ZIP File Not Found','NA','NA','NA','NA'])
-                except:# zipfile.BadZipFile:
+                except zipfile.BadZipFile:
                     printMessage('Bad ZIP File ' + row[1])
                     writer.writerow([row[0],row[1],'Bad ZIP File','NA','NA','NA','NA'])
                 finally:
